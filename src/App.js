@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Routes,Route } from 'react-router-dom';
+import {usestate} from "react"
+import { useState } from 'react';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Recipe from "./pages/Recipe";
+import Login from "./pages/Login";
+import Footer from "./Components/Footer";
+import PrivateRouter from "./pages/PrivateRouter";
+import Details from "./pages/Details";
+
+
+
+
+
 
 function App() {
+  const[isAuthorized, setIsAuthorized]=useState(false);
+  const[flags,setFlags]=useState({
+    flag1:false,
+    flag2:false
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <>
+        <Routes>
+          <Route path="/" element ={<PrivateRouter isAuthorized={isAuthorized} />} >
+                <Route path="" element ={<Home isAuthorized={isAuthorized} />}>
+                    <Route path="about" element={<About isAuthorized={isAuthorized} />} />   
+                    <Route index element={<Recipe flags={flags} setFlags={setFlags} isAuthorized={isAuthorized} />} />   
+                </Route>
+          </Route>
+          <Route path="/login" element={<Login isAuthorized={isAuthorized} setIsAuthorized={setIsAuthorized} />} />
+          <Route path="/details" element={<Details isAuthorized={isAuthorized}  />} />  
+        </Routes>
+             
+      </>
+
+
+   
   );
 }
 
