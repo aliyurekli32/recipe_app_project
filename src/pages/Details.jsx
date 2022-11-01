@@ -33,7 +33,7 @@ const Imgx=styled.img`
 
 const Details = ({isAuthorized}) => {
     const location=useLocation();
-    console.log(location.state);
+    
     const navigate=useNavigate();
 
     if(isAuthorized){

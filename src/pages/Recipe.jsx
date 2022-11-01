@@ -183,7 +183,7 @@ const Recipe = ({flags,setFlags}) => {
     
   }
 
-  console.log(data)
+  
  
   useEffect(() => {
     if(!flags.flag1){
@@ -194,7 +194,7 @@ const Recipe = ({flags,setFlags}) => {
 
   // console.log({flags}.flag1);
   
-  console.log(url2);
+  
 const getRecipe2 =async ()=>{
   const newFoodList= await axios(url2);
   setData([newFoodList]);
