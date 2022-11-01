@@ -161,8 +161,8 @@ text-align: center;
 
 
 const Recipe = ({flags,setFlags}) => {
-  const ID=process.env.ID
-  const PASSWORD=process.env.PASSWORD
+  const APP_ID=process.env.REACT_APP_APP_ID
+  const APP_PASSWORD=process.env.REACT_APP_APP_PASSWORD
   const[formData,setFormData]=useState({
     mealType:"",
     dishType:""
@@ -175,7 +175,7 @@ const Recipe = ({flags,setFlags}) => {
   if(flags.flag1) localStorage.setItem("data", JSON.stringify(data));
   
   
-  const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${ID}&app_key=${PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
+  const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${APP_ID}&app_key=${APP_PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
   const[url2,setUrl2]=useState(url);
   
   
