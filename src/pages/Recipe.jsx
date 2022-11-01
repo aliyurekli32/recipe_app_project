@@ -171,7 +171,7 @@ const Recipe = ({flags,setFlags}) => {
   const[data,setData]=useState(JSON.parse(localStorage.getItem("data"))??[]);
   if(flags.flag1) localStorage.setItem("data", JSON.stringify(data));
   
-  const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=341f5cc8&app_key=3f45bcdaaed800339202ff727787d6c9&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
+  const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${process.env.ID}&app_key=${process.env.PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
   const[url2,setUrl2]=useState(url);
   const getRecipe =async ()=>{
     const newFoodList= await axios(url);
