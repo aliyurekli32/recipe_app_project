@@ -226,9 +226,9 @@ const getRecipe2 =async ()=>{
   <Button onClick={()=>{getRecipe2()}} >Next</Button>
   </Div>
 
-  {data[0].data.count&& <div> <h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
+  {!data[0].data.count&& <div> <h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
 
-  {data[0].data.count&&<div>
+  {data[0].data.count && <div>
 
   <div>
     {data.length>0 && <Div style={{fontSize:"32px",color:"brown",fontWeight:"700"}}><span>From: {data[0].data.from}</span> <span>To: {data[0].data.to}</span> <span>Total Count: {data[0].data.count}</span> </Div>}
