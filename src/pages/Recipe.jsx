@@ -1,5 +1,6 @@
 import axios from "axios";
 import styled from "styled-components";
+import d_image from "../assets/default-image.jpg"
 import {Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 
@@ -173,6 +174,8 @@ const Recipe = ({flags,setFlags}) => {
   
   const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${process.env.ID}&app_key=${process.env.PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
   const[url2,setUrl2]=useState(url);
+  
+  
   const getRecipe =async ()=>{
     const newFoodList= await axios(url);
     setData([newFoodList]);
@@ -217,67 +220,15 @@ const getRecipe2 =async ()=>{
   <Input type="text" value={formData.dishType} id="dishType" placeholder="example:chicken" name="dishType" onChange={(e)=>{setFormData({ ...formData,dishType:e.target.value})}}  />
 
     </Div>
-   
-  {/* <label forhtml="mealType">Choose a Dish Type: </label>
   
-  <select onChange={(e)=>{setFormData({ ...formData,dishType:e.target.value})}}  multiple="multiple"  name="dishType" id="dishType">
-
-      <option  value=""></option>
-
-
-      <option value="Biscuits and cookies"> Biscuits and cookies  </option>
-
-
-      <option value="Bread"> Bread  </option>
-
-
-      <option value="Cereals"> Cereals  </option>
-
-
-      <option value="Condiments and sauces"> Condiments and sauces  </option>
-
-
-      <option value="Desserts"> Desserts  </option>
-
-
-      <option value="Drinks"> Drinks  </option>
-
-
-      <option value="Main course"> Main course  </option>
-
-
-      <option value="Pancake"> Pancake  </option>
-
-
-      <option value="Preps"> Preps  </option>
-
-
-      <option value="Preserve"> Preserve  </option>
-
-
-      <option value="Salad"> Salad  </option>
-
-
-      <option value="Sandwiches"> Sandwiches  </option>
-
-
-      <option value="Side dish"> Side dish  </option>
-
-
-      <option value="Soup"> Soup  </option>
-
-
-      <option value="Starter"> Starter  </option>
-
-
-      <option value="Sweets"> Sweets  </option>
-
-
-  </select> */}
-  <Div>
+    <Div>
   <Button onClick={()=>{getRecipe()}} >Search</Button>
   <Button onClick={()=>{getRecipe2()}} >Next</Button>
   </Div>
+
+  {data[0].data.count&& <div> <h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
+
+  {data[0].data.count&&<div>
 
   <div>
     {data.length>0 && <Div style={{fontSize:"32px",color:"brown",fontWeight:"700"}}><span>From: {data[0].data.from}</span> <span>To: {data[0].data.to}</span> <span>Total Count: {data[0].data.count}</span> </Div>}
@@ -294,8 +245,9 @@ const getRecipe2 =async ()=>{
                        
                   </Card>)
                 }) }
-  </Container> 
-  
+  </Container>
+  </div> 
+  }
   </>);
 
   
