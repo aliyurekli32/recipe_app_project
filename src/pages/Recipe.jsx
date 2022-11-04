@@ -229,7 +229,7 @@ const getRecipe2 =async ()=>{
   <Button onClick={()=>{getRecipe2()}} >Next</Button>
   </Div>
 
-  {!data[0].data.count&& <div> <h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
+  {!data[0].data.count && <div><h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
 
   {data[0].data.count && <div>
 
@@ -249,8 +249,7 @@ const getRecipe2 =async ()=>{
                   </Card>)
                 }) }
   </Container>
-  </div> 
-  }
+  </div>}
   </>);
 
   
