@@ -22,13 +22,6 @@ const Home = ({setIsAuthorized, isAuthorized}) => {
   return <>
     <Header>FOOD RECİPE</Header>
     <Nav isAuthorized={isAuthorized} setIsAuthorized={setIsAuthorized} />
-   
-    
-    
-    
-    
-    
-    
   </>
 };
 

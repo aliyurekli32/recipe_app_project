@@ -176,15 +176,22 @@ const Recipe = ({flags,setFlags}) => {
   
   
   const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${APP_ID}&app_key=${APP_PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
-  const[url2,setUrl2]=useState(url);
+  const[url2,setUrl2]=useState("");
   
   
   const getRecipe =async ()=>{
-    const newFoodList= await axios(url);
+    try {
+      const newFoodList= await axios(url);
     setData([newFoodList]);
     setUrl2(newFoodList.data._links.next.href)
+    } catch (error) {
+      alert('You should enter valid meal name')
+    }
+
     
   }
+  console.log(data);
+  
 
   
  
@@ -205,6 +212,8 @@ const getRecipe2 =async ()=>{
   
 }
  
+
+
   
   
   return (<>
@@ -226,17 +235,15 @@ const getRecipe2 =async ()=>{
   
     <Div>
   <Button onClick={()=>{getRecipe()}} >Search</Button>
-  <Button onClick={()=>{getRecipe2()}} >Next</Button>
+  {data.length>0 && <Button onClick={()=>{getRecipe2()}} >Next</Button>}
   </Div>
 
-  {!data[0].data.count && <div><h1>HATALI GİRİŞ YAPTINIZ</h1> <div><img src={d_image} alt="resim" /></div>  </div> }
+  
 
-  {data[0].data.count && <div>
-
+  <div>
   <div>
     {data.length>0 && <Div style={{fontSize:"32px",color:"brown",fontWeight:"700"}}><span>From: {data[0].data.from}</span> <span>To: {data[0].data.to}</span> <span>Total Count: {data[0].data.count}</span> </Div>}
   </div>
-  
   <Container >
    {data.length>0 && data[0].data.hits.map((item,index)=>{
                   return(<Card key={index}>
@@ -249,7 +256,7 @@ const getRecipe2 =async ()=>{
                   </Card>)
                 }) }
   </Container>
-  </div>}
+  </div>
   </>);
 
   
