@@ -35,6 +35,7 @@ function App() {
           </Route>
           <Route  path="/login" element={<Login isAuthorized={isAuthorized} setIsAuthorized={setIsAuthorized} />} />
           <Route path="/details" element={<Details isAuthorized={isAuthorized}  />} />  
+          <Route path={"*"} element={<Home />} />
         </Routes>
              
       </>
