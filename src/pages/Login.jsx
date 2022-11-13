@@ -96,10 +96,10 @@ const Login = ({isAuthorized,setIsAuthorized}) => {
 
   
   return <Login_div>
-      <p style={{marginLeft:"300px",fontSize:"32px"}}>Lütfen username: aslan, password:1453 giriniz</p>
+      
       <form onSubmit={handleSubmit} action="">
-        <div><input type="text" name="username" placeholder="USERNAME"  onChange={(e)=>{SetForm({...form, username:e.target.value,})}} /></div>
-        <div><input type="password" name="password" placeholder="PASSWORD" onChange={(e)=>{SetForm({...form, password:e.target.value,})}} /></div>
+        <div><input type="text" name="username" placeholder="USERNAME:aslan"  onChange={(e)=>{SetForm({...form, username:e.target.value,})}} /></div>
+        <div><input type="password" name="password" placeholder="PASSWORD:1453" onChange={(e)=>{SetForm({...form, password:e.target.value,})}} /></div>
         <div><button type="submit">LOGIN </button></div>
           
       </form>

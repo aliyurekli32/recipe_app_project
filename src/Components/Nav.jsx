@@ -17,6 +17,12 @@ background-color: #9cea0c;
         margin: 20px;
         
         font-family:Verdana, Geneva, Tahoma, sans-serif;
+        @media screen and (max-width: 992px) {
+   
+            font-size: 12px;
+        margin: 2px;
+  }
+}
     li:hover{
         transition: 50ms;
         scale:1.2;
@@ -25,7 +31,7 @@ background-color: #9cea0c;
     a{
             color: white;
         }
-  }  
+    
 
 `;
 const Ul = styled.ul`
@@ -38,6 +44,12 @@ const Ul = styled.ul`
             li{
                 padding: 5px;
                 margin-right: 10px;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+        @media screen and (max-width: 992px) {
+   
+            
+        margin-right: 2px;
+  }
                 a{
                     text-decoration: none;
                 }   
