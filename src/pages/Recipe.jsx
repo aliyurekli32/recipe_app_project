@@ -171,12 +171,12 @@ const Recipe = ({flags,setFlags}) => {
 
   
 
-  const[data,setData]=useState(JSON.parse(localStorage.getItem("data"))??[]);
-  if(flags.flag1) localStorage.setItem("data", JSON.stringify(data));
+  const[data,setData]=useState(JSON.parse(sessionStorage.getItem("data"))??[]);
+  if(flags.flag1) sessionStorage.setItem("data", JSON.stringify(data));
   
   
   const url=`https://api.edamam.com/api/recipes/v2?type=any&beta=false&app_id=${APP_ID}&app_key=${APP_PASSWORD}&mealType=${!formData.mealType ? "Lunch" : formData.mealType}&q=${!formData.dishType ? "Pizza" : formData.dishType}`;
-  const[url2,setUrl2]=useState("");
+  const[url2,setUrl2]=useState(url);
   
   
   const getRecipe =async ()=>{
