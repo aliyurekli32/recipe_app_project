@@ -28,12 +28,12 @@ function App() {
       <>
         <Routes>
           <Route  path="/" element ={<PrivateRouter isAuthorized={isAuthorized} />} >
-                <Route path="" element ={<Home isAuthorized={isAuthorized} />}>
+                <Route exact path="" element ={<Home isAuthorized={isAuthorized} />}>
                     <Route path="about" element={<About isAuthorized={isAuthorized} />} />   
                     <Route index element={<Recipe flags={flags} setFlags={setFlags} isAuthorized={isAuthorized} />} />   
                 </Route>
           </Route>
-          <Route exact path="/login" element={<Login isAuthorized={isAuthorized} setIsAuthorized={setIsAuthorized} />} />
+          <Route  path="/login" element={<Login isAuthorized={isAuthorized} setIsAuthorized={setIsAuthorized} />} />
           <Route path="/details" element={<Details isAuthorized={isAuthorized}  />} />  
         </Routes>
              
