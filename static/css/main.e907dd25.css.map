@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e907dd25.css","mappings":"AAAA,EAGE,qBAAsB,CADtB,QAAS,CADT,SAGF,CACA,KACE,wBAAyB,CACzB,iBACF","sources":["App.css"],"sourcesContent":["*{\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\nbody{\n  background-color: #C1D96C;\n  position: relative;\n}\n\n"],"names":[],"sourceRoot":""}
