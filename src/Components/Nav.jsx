@@ -64,7 +64,7 @@ const Nav = ({isAuthorized,setIsAuthorized}) => {
         <Ul>
             {isAuthorized ?
             <li>
-                <Linka onClick={()=>{setIsAuthorized(false)}} to="">Logout</Linka>
+                <Linka onClick={()=>{setIsAuthorized(false)}} to="/">Logout</Linka>
             </li> : ""
             }
             <li>
