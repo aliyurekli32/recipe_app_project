@@ -27,8 +27,8 @@ function App() {
     
       <>
         <Routes>
-          <Route index path="/" element ={<PrivateRouter isAuthorized={isAuthorized} />} >
-                <Route  path="" element ={<Home isAuthorized={isAuthorized} />}>
+          <Route  path="" element ={<PrivateRouter isAuthorized={isAuthorized} />} >
+                <Route  path="/" element ={<Home isAuthorized={isAuthorized} />}>
                     <Route path="about" element={<About isAuthorized={isAuthorized} />} />   
                     <Route index element={<Recipe flags={flags} setFlags={setFlags} isAuthorized={isAuthorized} />} />   
                 </Route>
