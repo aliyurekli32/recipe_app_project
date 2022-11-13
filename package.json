@@ -1,5 +1,5 @@
 {
-  "home":"https://aliyurekli32.github.io/recipe_app_project/",
+  
   "name": "recipe_app_project",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +23,7 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
+   
   },
   "eslintConfig": {
     "extends": [
